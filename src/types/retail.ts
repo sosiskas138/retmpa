@@ -7,6 +7,7 @@ export interface Company {
   status: 'active' | 'inactive' | 'acquired';
   acquiredBy?: string;
   acquiredYear?: number;
+  storyUrl?: string;
 }
 
 export interface Owner {

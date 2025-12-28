@@ -37,8 +37,8 @@ switch ($method) {
         }
         
         $stmt = $pdo->prepare("
-            INSERT INTO companies (id, name, parent_company, logo, color, status, acquired_by, acquired_year)
-            VALUES (?, ?, ?, ?, ?, ?, ?, ?)
+            INSERT INTO companies (id, name, parent_company, logo, color, status, acquired_by, acquired_year, story_url)
+            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)
         ");
         
         try {
@@ -50,7 +50,8 @@ switch ($method) {
                 $data['color'],
                 $data['status'] ?? 'active',
                 $data['acquired_by'] ?? null,
-                $data['acquired_year'] ?? null
+                $data['acquired_year'] ?? null,
+                $data['story_url'] ?? null
             ]);
             jsonResponse(['success' => true, 'id' => $data['id']], 201);
         } catch (PDOException $e) {
@@ -74,7 +75,8 @@ switch ($method) {
                 color = ?,
                 status = ?,
                 acquired_by = ?,
-                acquired_year = ?
+                acquired_year = ?,
+                story_url = ?
             WHERE id = ?
         ");
         
@@ -87,6 +89,7 @@ switch ($method) {
                 $data['status'] ?? 'active',
                 $data['acquired_by'] ?? null,
                 $data['acquired_year'] ?? null,
+                $data['story_url'] ?? null,
                 $id
             ]);
             jsonResponse(['success' => true]);

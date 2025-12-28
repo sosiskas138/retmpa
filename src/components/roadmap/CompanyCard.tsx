@@ -1,8 +1,10 @@
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
 import { Company } from "@/types/retail";
-import { Building2, CheckCircle2, XCircle } from "lucide-react";
+import { Building2, CheckCircle2, XCircle, BookOpen } from "lucide-react";
 import { ErrorReportButton } from "./ErrorReportButton";
+import Link from "next/link";
 
 interface CompanyCardProps {
   company: Company;
@@ -48,11 +50,23 @@ export const CompanyCard = ({ company, storeCount }: CompanyCardProps) => {
           />
         </div>
       </div>
-      {storeCount && (
-        <div className="text-sm text-muted-foreground">
-          Количество магазинов: <span className="font-semibold text-foreground">{storeCount}</span>
-        </div>
-      )}
+      <div className="flex items-center justify-between mt-4">
+        {storeCount ? (
+          <div className="text-sm text-muted-foreground">
+            Количество магазинов: <span className="font-semibold text-foreground">{storeCount}</span>
+          </div>
+        ) : (
+          <div />
+        )}
+        {company.storyUrl && (
+          <Link href={company.storyUrl}>
+            <Button variant="outline" size="sm" className="gap-2">
+              <BookOpen className="h-4 w-4" />
+              История компании
+            </Button>
+          </Link>
+        )}
+      </div>
     </Card>
   );
 };

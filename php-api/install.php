@@ -15,6 +15,7 @@ $queries = [
         status ENUM('active', 'inactive', 'acquired') DEFAULT 'active',
         acquired_by VARCHAR(255),
         acquired_year INT,
+        story_url VARCHAR(500),
         created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
         updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
     ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4",

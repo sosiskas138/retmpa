@@ -11,13 +11,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
 
 // Database configuration - ИЗМЕНИТЕ ЭТИ ДАННЫЕ
 define('DB_HOST', 'localhost');
-define('DB_NAME', 'your_database_name');
-define('DB_USER', 'your_username');
+define('DB_NAME', 'retail_db');
+define('DB_USER', 'retail_user');
 define('DB_PASS', 'your_password');
 
 // Admin credentials - ИЗМЕНИТЕ ЭТИ ДАННЫЕ
 define('ADMIN_USER', 'admin');
-define('ADMIN_PASS', 'your_secure_password');
+define('ADMIN_PASS', 'admin123');
 
 function getDB() {
     try {

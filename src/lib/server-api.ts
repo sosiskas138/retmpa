@@ -11,6 +11,7 @@ const transformCompany = (data: any): Company => ({
   status: data.status as 'active' | 'inactive' | 'acquired',
   acquiredBy: data.acquired_by || undefined,
   acquiredYear: data.acquired_year ? Number(data.acquired_year) : undefined,
+  storyUrl: data.story_url || undefined,
 });
 
 const transformEvent = (data: any): RoadmapEvent => ({
